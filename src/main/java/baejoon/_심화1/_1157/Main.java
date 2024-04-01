@@ -31,45 +31,50 @@ package baejoon._심화1._1157;
  */
 
 import java.io.*;
+import java.util.*;
 public class Main {
     public static void main(String[] args) throws Exception {
-        String input = "Mississipi";
+        String input = "zzqqqaaa";
 
         BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(input.getBytes())));
 //        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String s = br.readLine();
-        int max = 0;
-        int max2 = 0;
-        String maxStr ="";
+        String s = br.readLine().toUpperCase();
+        Map<String, Integer> map = new HashMap<>();
 
-        for (int i = 0 ; i < s.length() ; i++) {
-            int start = 0;
-
-            int num = 0;
-            while(true) {
-
-                int a = s.indexOf(s.charAt(i), start);
-                if (a==-1) {
-                    break;
-                }
-                num++;
-                start = a + 1;
-            }
-
-            if (num >= max) {
-                max2 = max;
-                max = num;
-                maxStr = String.valueOf(s.charAt(i));
+        String[] split = s.split("");
+        for (String word : split) {
+            Integer get = map.get(word);
+            if (get == null) {
+                map.put(word, 1);
+            } else {
+                map.put(word, get + 1);
             }
         }
 
-        if (max == max2) {
+        int max = 0;
+        int count = 0;
+        String findWord = "";
+
+        for (String key : map.keySet()) {
+            Integer wordCount = map.get(key);
+            if (wordCount > max) {
+                count = 0;
+                max = wordCount;
+                findWord = key;
+                count++;
+            } else if (wordCount == max) {
+                count++;
+            }
+        }
+
+        if (count > 1) {
             bw.write("?");
         } else {
-            bw.write(maxStr);
+            bw.write(findWord);
         }
+
         bw.flush();
     }
 }
