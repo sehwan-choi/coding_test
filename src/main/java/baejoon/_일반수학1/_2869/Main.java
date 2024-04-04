@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.*;
 public class Main {
     public static void main(String[] args) throws Exception {
-        String input = "5 3 6";
+        String input = "100 99 1000000000";
 
         BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(input.getBytes())));
 //        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,14 +20,14 @@ public class Main {
         int A = Integer.parseInt(st.nextToken());
         int B = Integer.parseInt(st.nextToken());
         int V = Integer.parseInt(st.nextToken());
-        int total = 0;
 
-        int a = A - B;
-        int day = Math.round(V / (float)a);
+        int k = (V - B) / (A - B);
 
-        if ()
+        if ((V - B) % (A - B) != 0) {
+            k++;
+        }
 
-        bw.write(String.valueOf(day));
+        bw.write(String.valueOf(k));
         bw.flush();
     }
 }
