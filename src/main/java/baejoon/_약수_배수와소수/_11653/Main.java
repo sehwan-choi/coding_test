@@ -1,7 +1,7 @@
 package baejoon._약수_배수와소수._11653;
 
 /**
- * 문제 url <a href=""></a>
+ * 문제 url <a href="https://www.acmicpc.net/problem/11653"></a>
  *
  */
 
