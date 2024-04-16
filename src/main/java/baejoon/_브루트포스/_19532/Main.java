@@ -1,7 +1,7 @@
 package baejoon._브루트포스._19532;
 
 /**
- * 문제 url <a href=""></a>
+ * 문제 url <a href="https://www.acmicpc.net/problem/19532"></a>
  *
  */
 
