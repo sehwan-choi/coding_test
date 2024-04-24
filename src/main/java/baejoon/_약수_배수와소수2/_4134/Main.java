@@ -5,7 +5,6 @@ package baejoon._약수_배수와소수2._4134;
  *
  */
 import java.io.*;
-import java.util.*;
 public class Main {
     public static void main(String[] args) throws Exception {
         String input = "3\n" +
@@ -20,13 +19,26 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
 
         for (int i = 0 ; i < N ; i++) {
-            int n = Integer.parseInt(br.readLine());
-            while(true) {
-                int k = (int) Math.sqrt(n);
-                for (int j = 2; j < k; j++) {
-
+            long n = Long.parseLong(br.readLine());
+            while (true) {
+                long count = 0;
+                for (long j = 2; j <= Math.sqrt(n); j++) {
+                    if (n % j == 0) {
+                        count++;
+                        break;
+                    }
                 }
+                if (count == 0) {
+                    if (n == 0 || n == 1) {
+                        n = 2;
+                    }
+                    bw.write(String.valueOf(n));
+                    bw.newLine();
+                    break;
+                }
+                n++;
             }
         }
+        bw.flush();
     }
 }
